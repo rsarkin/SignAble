@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignAble ASL Studio - Stitch Screens Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(23, 32, 54, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #38bdf8;
+      --primary-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      --accent: #4ade80;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.12) 0px, transparent 50%);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      background: linear-gradient(to right, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    .meta-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .meta-subtitle code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #e2e8f0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.45);
+    }
+
+    .preview-container {
+      position: relative;
+      background: #0f172a;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .preview-img {
+      transform: scale(1.03);
+    }
+
+    .screen-number {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #f8fafc;
+    }
+
+    .card-id {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: monospace;
+      margin-bottom: 1rem;
+      word-break: break-all;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: #04101e;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .docs-section {
+      margin-top: 3.5rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+    }
+
+    .docs-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .doc-link {
+      display: inline-block;
+      margin-right: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .doc-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Google Stitch Export</div>
+      <h1>SignAble ASL Studio</h1>
+      <p class="meta-subtitle">Project ID: <code>3328748206627828150</code> &bull; 5 Interactive UI Screens</p>
+    </header>
+
+    <div class="grid">
+      <!-- Screen 1 -->
+      <div class="card">
+        <div class="preview-container">
+          <span class="screen-number">Screen 1</span>
+          <img class="preview-img" src="screens/01_learning_path/screenshot.jpg" alt="SignAble - Learning Path">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">1. SignAble - Learning Path</h2>
+          <div class="card-id">ID: 5f74cf196f14448cbc8ce92b0271c3e9</div>
+          <div class="button-group">
+            <a class="btn btn-primary" href="screens/01_learning_path/screen.html" target="_blank">Open Screen HTML &rarr;</a>
+            <a class="btn btn-outline" href="screens/01_learning_path/screenshot.jpg" target="_blank">View Image</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 2 -->
+      <div class="card">
+        <div class="preview-container">
+          <span class="screen-number">Screen 2</span>
+          <img class="preview-img" src="screens/02_lesson_intro/screenshot.jpg" alt="SignAble - Lesson Intro">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">2. SignAble - Lesson Intro</h2>
+          <div class="card-id">ID: d9450b58cd714f3b8e4a6514481b8e6c</div>
+          <div class="button-group">
+            <a class="btn btn-primary" href="screens/02_lesson_intro/screen.html" target="_blank">Open Screen HTML &rarr;</a>
+            <a class="btn btn-outline" href="screens/02_lesson_intro/screenshot.jpg" target="_blank">View Image</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 3 -->
+      <div class="card">
+        <div class="preview-container">
+          <span class="screen-number">Screen 3</span>
+          <img class="preview-img" src="screens/03_watch_the_sign/screenshot.jpg" alt="SignAble - Watch the Sign">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">3. SignAble - Watch the Sign</h2>
+          <div class="card-id">ID: 9536aae479474b95ac88431e3a5b4453</div>
+          <div class="button-group">
+            <a class="btn btn-primary" href="screens/03_watch_the_sign/screen.html" target="_blank">Open Screen HTML &rarr;</a>
+            <a class="btn btn-outline" href="screens/03_watch_the_sign/screenshot.jpg" target="_blank">View Image</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 4 -->
+      <div class="card">
+        <div class="preview-container">
+          <span class="screen-number">Screen 4</span>
+          <img class="preview-img" src="screens/04_sign_practice_studio_redesigned/screenshot.jpg" alt="SignAble - Sign Practice Studio (Redesigned)">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">4. Sign Practice Studio (Redesigned)</h2>
+          <div class="card-id">ID: 7940ff717b554556b9ed15b10d6f5ddd</div>
+          <div class="button-group">
+            <a class="btn btn-primary" href="screens/04_sign_practice_studio_redesigned/screen.html" target="_blank">Open Screen HTML &rarr;</a>
+            <a class="btn btn-outline" href="screens/04_sign_practice_studio_redesigned/screenshot.jpg" target="_blank">View Image</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 5 -->
+      <div class="card">
+        <div class="preview-container">
+          <span class="screen-number">Screen 5</span>
+          <img class="preview-img" src="screens/05_lesson_complete/screenshot.jpg" alt="SignAble - Lesson Complete">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">5. SignAble - Lesson Complete</h2>
+          <div class="card-id">ID: 736c9aeab069467192f4d89fe885ba1d</div>
+          <div class="button-group">
+            <a class="btn btn-primary" href="screens/05_lesson_complete/screen.html" target="_blank">Open Screen HTML &rarr;</a>
+            <a class="btn btn-outline" href="screens/05_lesson_complete/screenshot.jpg" target="_blank">View Image</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="docs-section">
+      <h2>Project Design & Specification Documents</h2>
+      <a class="doc-link" href="docs/SignAble_Product_Brief_MVP.md" target="_blank">📄 SignAble Product Brief MVP</a>
+      <a class="doc-link" href="docs/duolingo-DESIGN.md" target="_blank">🎨 Duolingo Design Guide</a>
+    </div>
+  </div>
+</body>
+</html>

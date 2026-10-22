@@ -1,0 +1,311 @@
+{
+  "screenshot": {
+    "name": "projects/3328748206627828150/screens/7940ff717b554556b9ed15b10d6f5ddd/fileEntries/screenshot",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1WuAGByEzi_zCQ0DtjtE6xpUGikpypv87QGEp8dKq2xK4Lno7-PQ4y-oe5AQSdTC4AvlLE4Ir-ZkwWfWyzVlT8OyypqFvMlqlirJrKzeyuv-0DG-YUixIIAtkoGXmYfro9TsoeQvEuGqAZNkRUJAEyeqtNoatKdcjfwkZQTadEjWZbmqvrteIzRGMy8bBBDq_Z3XNoyeR6IOdXtGCwj1wPeTRXImfFIqKaWrEDJpieJZlESPXel0WtHOY8"
+  },
+  "htmlCode": {
+    "name": "projects/3328748206627828150/screens/7940ff717b554556b9ed15b10d6f5ddd/fileEntries/html",
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ZTVlN2ZiZjJmYjkwMmQzYzg4MTkxMzQ2MTZjEgsSBxD_spfGrxAYAZIBIwoKcHJvamVjdF9pZBIVQhMzMzI4NzQ4MjA2NjI3ODI4MTUw&filename=&opi=89354086",
+    "mimeType": "text/html"
+  },
+  "id": "7940ff717b554556b9ed15b10d6f5ddd",
+  "generatedBy": "HatterAgent",
+  "width": "2560",
+  "height": "2048",
+  "title": "SignAble - Sign Practice Studio (Redesigned)",
+  "prompt": "Redesign the Sign Practice Studio screen to make it visually led, uncluttered, minimal, and highly effective with outstanding visual hierarchy and easy navigation:\n\n1. Top Navigation & Header:\n- Clean minimal top bar: Back/Close ('✕' or '← Back to Lesson'), crisp title \"Practice: Hello 👋\", step indicator \"Step 2 of 3\" with a clean progress bar, and 1-day streak badge. Keep it light, airy, and uncluttered.\n- Eliminate duplicate headers, redundant badges like \"Interactive Calibration\", and duplicate \"66% Complete\" banners.\n\n2. Main Practice Layout - Visual & Balanced Side-by-Side:\n- Left Column: Live Camera Mirror Feed:\n  - Clean, immersive rounded camera viewport with dark sleek background or simulated webcam feed.\n  - Minimal top overlay: subtle live indicator \"🔴 Live Camera\" and hand detected status.\n  - Centered glowing geometric 21-hand landmark wireframe or translucent hand silhouette alignment guide with a clean target zone outline.\n  - Floating bottom bar or minimal controls: Mirror toggle, fullscreen, camera switch icon.\n  - Remove technical clutter like \"Prototype: recognizes 1 sign\", \"Visual Landmark Smoothing\", \"Low Latency Mode\", etc.\n  \n- Right Column: Reference Video & Instant Visual Feedback:\n  - Compact, high-clarity reference instructor preview card (reusing the instructor image from SCREEN_8 / SCREEN_2) showing the model gesture loop with a subtle \"Target: Hello\" badge and play/speed pill.\n  - Real-time Visual Status Indicator: A prominent, expressive visual feedback card showing current detection status (e.g. \"👋 Hand in position — now wave outward\").\n  - 3 Visual Checkpoints: Minimal, clean, card-style checklist with icons and concise labels:\n    1. \"Open Palm\" (Ready / ✓ in vibrant green)\n    2. \"Cheek / Temple Level\" (In position / Active)\n    3. \"Gentle Outward Wave\" (Waiting for movement)\n    Make these checkpoints visual, bold, and readable at a glance without long walls of text.\n\n3. Bottom Floating Action Bar:\n- Clean bottom sticky action bar with plenty of whitespace:\n  - Left: Simple \"↺ Reset Camera\" or \"Replay Guide\" secondary button.\n  - Right: Prominent, tactile Chunky Duolingo-style Green CTA button \"Check my sign ⚡\" or \"Continue →\" (with nice shadow/press effect matching the design system).\n\n4. Aesthetic & Tone:\n- Consistent with the SignAble design system (soft pastel sky/cream background #fbf9f8 or #ddf4ff, vibrant lime #a5ed6e CTA, rounded corners, clean Nunito Sans typography, accessible WCAG contrast).\n- Visual-first, zero technical jargon, clear affordances, and encouraging vibe for deaf and hard-of-hearing learners.",
+  "name": "projects/3328748206627828150/screens/7940ff717b554556b9ed15b10d6f5ddd",
+  "theme": {
+    "colorMode": "LIGHT",
+    "font": "NUNITO_SANS",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#a5ed6e",
+    "headlineFont": "NUNITO_SANS",
+    "bodyFont": "NUNITO_SANS",
+    "labelFont": "NUNITO_SANS",
+    "namedColors": {
+      "surface_container_lowest": "#ffffff",
+      "secondary_fixed": "#ffdbd1",
+      "surface_container_low": "#f5f3f2",
+      "error": "#ba1a1a",
+      "on_primary_fixed": "#0b2000",
+      "on_surface_variant": "#414939",
+      "inverse_surface": "#303030",
+      "surface_tint": "#346b00",
+      "on_primary": "#ffffff",
+      "surface_bright": "#fbf9f8",
+      "outline_variant": "#c1cab5",
+      "on_error_container": "#93000a",
+      "on_secondary_fixed": "#3b0a00",
+      "surface_dim": "#dcd9d9",
+      "tertiary": "#006590",
+      "on_secondary_container": "#6b1900",
+      "on_primary_fixed_variant": "#265100",
+      "secondary": "#a63a19",
+      "surface_variant": "#e4e2e1",
+      "on_tertiary_fixed_variant": "#004c6e",
+      "secondary_fixed_dim": "#ffb5a0",
+      "on_secondary_fixed_variant": "#862302",
+      "tertiary_fixed_dim": "#88ceff",
+      "on_error": "#ffffff",
+      "on_tertiary_container": "#006591",
+      "secondary_container": "#fd7a53",
+      "on_surface": "#1b1c1c",
+      "tertiary_container": "#b5dfff",
+      "primary_container": "#a5ed6e",
+      "background": "#fbf9f8",
+      "primary": "#346b00",
+      "on_tertiary_fixed": "#001e2e",
+      "on_primary_container": "#346b00",
+      "outline": "#727a68",
+      "surface": "#fbf9f8",
+      "surface_container_highest": "#e4e2e1",
+      "primary_fixed_dim": "#93d95d",
+      "error_container": "#ffdad6",
+      "tertiary_fixed": "#c8e6ff",
+      "inverse_on_surface": "#f3f0f0",
+      "surface_container": "#f0eded",
+      "surface_container_high": "#eae8e7",
+      "on_tertiary": "#ffffff",
+      "inverse_primary": "#93d95d",
+      "on_background": "#1b1c1c",
+      "on_secondary": "#ffffff",
+      "primary_fixed": "#aef676"
+    },
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#a5ed6e",
+    "overrideSecondaryColor": "#ff7b54",
+    "overrideTertiaryColor": "#1cb0f6",
+    "overrideNeutralColor": "#3c3c3c",
+    "spacingScale": 2,
+    "typography": {
+      "headline-xl-mobile": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "26px",
+        "fontWeight": "800",
+        "lineHeight": "34px",
+        "letterSpacing": "-0.01em"
+      },
+      "label-lg": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "16px",
+        "fontWeight": "800",
+        "lineHeight": "20px",
+        "letterSpacing": "0.02em"
+      },
+      "headline-xl": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "32px",
+        "fontWeight": "800",
+        "lineHeight": "40px",
+        "letterSpacing": "-0.02em"
+      },
+      "headline-md": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "20px",
+        "fontWeight": "700",
+        "lineHeight": "28px"
+      },
+      "headline-lg": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "24px",
+        "fontWeight": "800",
+        "lineHeight": "32px",
+        "letterSpacing": "-0.01em"
+      },
+      "body-lg": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "26px"
+      },
+      "body-md": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "lineHeight": "24px"
+      },
+      "caption": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "lineHeight": "18px"
+      },
+      "label-md": {
+        "fontFamily": "Nunito Sans",
+        "fontSize": "14px",
+        "fontWeight": "700",
+        "lineHeight": "18px",
+        "letterSpacing": "0.01em"
+      }
+    },
+    "spacing": {
+      "space-lg": "1.875rem",
+      "space-md": "1.25rem",
+      "gutter": "1.25rem",
+      "margin-mobile": "1.25rem",
+      "space-sm": "0.625rem",
+      "space-xl": "2.5rem",
+      "margin": "1.875rem",
+      "space-xs": "0.3125rem",
+      "gutter-mobile": "0.625rem"
+    },
+    "headlineFontFamily": "Nunito Sans",
+    "bodyFontFamily": "Nunito Sans",
+    "labelFontFamily": "Nunito Sans"
+  },
+  "deviceType": "DESKTOP",
+  "screenType": "DESIGN",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE"
+  },
+  "designSystem": {
+    "name": "assets/1836617246674aec9537dd87ed230716",
+    "designSystem": {
+      "displayName": "SignAble Design System",
+      "styleGuidelines": "## Brand & Style\n\nThis design system serves deaf and hard-of-hearing students mastering academic curriculum and sign language simultaneously. The aesthetic balances gamified delight with profound academic respect, avoiding trivializing tropes (such as points, badges, or auditory-only chimes). Instead, motivation stems from visible progress, tactile feedback, and total visual clarity.\n\nThe visual style is **Tactile Neomorphic-Pop**: high-contrast, structured, and inherently physical. Large, chunky interactive surfaces respond with tangible press states, anchoring every interaction with physical certainty. Generous whitespace, unambiguous typography, and high-contrast boundaries ensure an interface free of cognitive clutter and visual fatigue.\n\n### Core Principles\n- **Visual-First Certainty**: Since audio cues are absent or secondary, all feedback is dual-encoded through distinct color shifts, motion, iconography, and text labels.\n- **Physical Responsiveness**: Buttons and interactive tiles employ offset bottom borders that compress mechanically upon click or tap, mimicking real-world switches.\n- **Respectful Gamification**: Progress is tracked through concept mastery pathways and comprehension completion rather than disposable XP or competitive point tallies.\n- **Cognitive Ergonomics**: Restful pale backgrounds reduce screen glare, paired with charcoal typography calibrated well above accessibility thresholds.\n\n## Layout & Spacing\n\nThis design system uses a strict **10px base unit system** (`0.625rem`). All paddings, gap measures, and layout rhythms are multiples of 5px or 10px to establish consistent visual cadence across every viewport.\n\n### Layout Rhythm & Fluid Grid\n- **Desktop (1024px and above)**: 12-column layout with a maximum container boundary of `1200px`. Section margins are set to `30px` (`1.875rem`) with gutters of `20px` (`1.25rem`). Multi-column split views prioritize side-by-side sign video viewports and accompanying exercise fields.\n- **Tablet (768px – 1023px)**: 8-column layout with `20px` gutters and `20px` canvas margins. Instructional videos transition above interactive modules.\n- **Mobile (Up to 767px)**: 4-column layout with `10px` (`0.625rem`) gutters and `20px` (`1.25rem`) outer margin. Touch controls snap to sticky bottom anchor bars for one-handed operation.\n- **Spacing Token Map**:\n  - `space-xs`: `5px` (`0.3125rem`) – micro-gaps between badge icons and companion copy.\n  - `space-sm`: `10px` (`0.625rem`) – interior control padding and tight component clusters.\n  - `space-md`: `20px` (`1.25rem`) – internal card padding, standard vertical flow gap.\n  - `space-lg`: `30px` (`1.875rem`) – gaps separating distinct lesson cards and exercise stages.\n  - `space-xl`: `40px` (`2.5rem`) – major structural section dividers.\n\n## Elevation & Depth\n\nRather than relying on atmospheric, hazy drop shadows that degrade clarity, this design system creates depth through **Physical Solid Extrusions and Crisp Borders**.\n\n### Depth Layers\n- **Level 0 (Canvas Base)**: Flat sky blue background (`#DDF4FF`).\n- **Level 1 (Surface Cards & Modals)**: Pure white surface (`#FFFFFF`) with a `2px` solid border in `#D4ECF7` and a flat vertical drop offset: `0px 4px 0px 0px rgba(28, 176, 246, 0.12)`. No blur is used; separation is clean, geometric, and distinct.\n- **Level 2 (Tactile Interactive Components)**: Buttons and clickable tiles feature a solid `4px` bottom extrusion border. When depressed, the component physically translates downward along the Y-axis by `2px` to `3px`, collapsing the bottom lip to simulate real hardware keystrokes.\n- **Focus & Selection**: Selected option cards replace the baseline border with a `3px` solid `#1CB0F6` outline coupled with a faint inner tint (`rgba(28, 176, 246, 0.06)`), ensuring unambiguous visual feedback without color-alone dependency.\n\n## Components\n\n### Buttons\n- **Touch Target & Size**: Minimum height is `48px` (exceeding the standard `44px` target) with `12px` corner radii and horizontal padding of `20px`.\n- **Primary Action (Proceed / Confirm)**: Fill `#A5ED6E`, text `#111111`, bottom border `4px solid #72B043`. On `:active` or `:pressed`, the element shifts `translateY(3px)` and the border compresses to `1px solid #72B043`.\n- **Secondary / Retry**: Fill `#FF7B54`, text `#FFFFFF`, bottom border `4px solid #CC5028`. Paired with a bold undo/retry icon.\n- **Neutral / Outline**: Fill `#FFFFFF`, text `#3C3C3C`, side and top border `2px solid #E5E5E5`, bottom border `4px solid #D0D0D0`.\n- **Focus Ring**: A visible `3px` solid `#0B6FB0` offset ring appears on keyboard navigation for clear visual focus.\n\n### Interactive Option Cards (Multiple Choice & Sign Matching)\n- **Resting**: Fill `#FFFFFF`, `2px solid #E2EFF5`, bottom border `4px solid #D0E4ED`, radius `12px`, padding `20px`.\n- **Active / Focused**: Border shifts to `2px solid #1CB0F6` with a bottom lip of `4px solid #0B6FB0`.\n- **Correct State**: Fill `rgba(165, 237, 110, 0.15)`, border `2px solid #72B043`, bottom border `4px solid #72B043`, accompanied by a bold checkmark icon.\n- **Incorrect State**: Fill `rgba(255, 123, 84, 0.12)`, border `2px solid #CC5028`, bottom border `4px solid #CC5028`, accompanied by a retry icon.\n\n### Form Inputs & Text Fields\n- Clean white background, `48px` minimum height, `12px` border radius, framed by a `2px solid #D0E4ED` border.\n- Text color is `#3C3C3C` with placeholder text set in Slate `#5A5A5A`.\n- Active focus displays a `2px solid #0B6FB0` border with a subtle `3px` focus glow ring.\n\n### Checkboxes & Toggle Controls\n- Custom square box (`24px × 24px`) with `6px` radius, `2px solid #5A5A5A`.\n- When checked: Fill `#A5ED6E`, border `#72B043`, housing a heavy `#111111` check glyph. Avoid thin lines that might compromise visual verification.\n\n### Status Chips & Progress Indicators\n- **Linear Progress Bars**: Track container with `16px` height, radius `9999px`, background `#FFFFFF`, border `2px solid #D0E4ED`. The active fill is `#A5ED6E` with a bright glossy cap indicator for immediate reading.\n- **Concept Badges**: Pill-shaped (`radius: 9999px`), padding `6px 14px`, text `#0B6FB0`, background `rgba(28, 176, 246, 0.12)`, accompanied by a bold category icon.\n\n### Video & Sign Demonstration Canvas\n- Framed in a pure white wrapper with a `12px` border radius and a `2px solid #D4ECF7` contour.\n- Integrated video controls are high contrast, featuring closed captions rendered in `#FFFFFF` on a `#111111` solid backdrop at `16px` minimum font size.\n- Video playback speeds include quick-toggle buttons (`0.5x`, `0.75x`, `1x`) designed as chunky tactile buttons for simple sign analysis.",
+      "theme": {
+        "colorMode": "LIGHT",
+        "font": "NUNITO_SANS",
+        "roundness": "ROUND_EIGHT",
+        "customColor": "#a5ed6e",
+        "headlineFont": "NUNITO_SANS",
+        "bodyFont": "NUNITO_SANS",
+        "labelFont": "NUNITO_SANS",
+        "namedColors": {
+          "on_error": "#ffffff",
+          "on_error_container": "#93000a",
+          "on_tertiary_container": "#006591",
+          "on_secondary": "#ffffff",
+          "on_secondary_fixed": "#3b0a00",
+          "tertiary_fixed": "#c8e6ff",
+          "on_tertiary_fixed_variant": "#004c6e",
+          "inverse_surface": "#303030",
+          "on_surface": "#1b1c1c",
+          "secondary_fixed": "#ffdbd1",
+          "error": "#ba1a1a",
+          "secondary_fixed_dim": "#ffb5a0",
+          "primary_fixed": "#aef676",
+          "on_primary_fixed": "#0b2000",
+          "primary_fixed_dim": "#93d95d",
+          "outline": "#727a68",
+          "surface": "#fbf9f8",
+          "on_background": "#1b1c1c",
+          "surface_container": "#f0eded",
+          "surface_variant": "#e4e2e1",
+          "primary": "#346b00",
+          "surface_container_high": "#eae8e7",
+          "outline_variant": "#c1cab5",
+          "on_tertiary_fixed": "#001e2e",
+          "on_tertiary": "#ffffff",
+          "secondary_container": "#fd7a53",
+          "surface_container_highest": "#e4e2e1",
+          "background": "#fbf9f8",
+          "on_surface_variant": "#414939",
+          "primary_container": "#a5ed6e",
+          "on_primary_fixed_variant": "#265100",
+          "tertiary_container": "#b5dfff",
+          "surface_bright": "#fbf9f8",
+          "surface_container_low": "#f5f3f2",
+          "on_secondary_fixed_variant": "#862302",
+          "inverse_on_surface": "#f3f0f0",
+          "error_container": "#ffdad6",
+          "surface_tint": "#346b00",
+          "tertiary": "#006590",
+          "inverse_primary": "#93d95d",
+          "tertiary_fixed_dim": "#88ceff",
+          "on_secondary_container": "#6b1900",
+          "surface_dim": "#dcd9d9",
+          "on_primary": "#ffffff",
+          "on_primary_container": "#346b00",
+          "secondary": "#a63a19",
+          "surface_container_lowest": "#ffffff"
+        },
+        "designMd": "---\nname: SignAble Design System\ncolors:\n  surface: '#fbf9f8'\n  surface-dim: '#dcd9d9'\n  surface-bright: '#fbf9f8'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f5f3f2'\n  surface-container: '#f0eded'\n  surface-container-high: '#eae8e7'\n  surface-container-highest: '#e4e2e1'\n  on-surface: '#1b1c1c'\n  on-surface-variant: '#414939'\n  inverse-surface: '#303030'\n  inverse-on-surface: '#f3f0f0'\n  outline: '#727a68'\n  outline-variant: '#c1cab5'\n  surface-tint: '#346b00'\n  primary: '#346b00'\n  on-primary: '#ffffff'\n  primary-container: '#a5ed6e'\n  on-primary-container: '#346b00'\n  inverse-primary: '#93d95d'\n  secondary: '#a63a19'\n  on-secondary: '#ffffff'\n  secondary-container: '#fd7a53'\n  on-secondary-container: '#6b1900'\n  tertiary: '#006590'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#b5dfff'\n  on-tertiary-container: '#006591'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#aef676'\n  primary-fixed-dim: '#93d95d'\n  on-primary-fixed: '#0b2000'\n  on-primary-fixed-variant: '#265100'\n  secondary-fixed: '#ffdbd1'\n  secondary-fixed-dim: '#ffb5a0'\n  on-secondary-fixed: '#3b0a00'\n  on-secondary-fixed-variant: '#862302'\n  tertiary-fixed: '#c8e6ff'\n  tertiary-fixed-dim: '#88ceff'\n  on-tertiary-fixed: '#001e2e'\n  on-tertiary-fixed-variant: '#004c6e'\n  background: '#fbf9f8'\n  on-background: '#1b1c1c'\n  surface-variant: '#e4e2e1'\ntypography:\n  headline-xl:\n    fontFamily: Nunito Sans\n    fontSize: 32px\n    fontWeight: '800'\n    lineHeight: 40px\n    letterSpacing: -0.02em\n  headline-xl-mobile:\n    fontFamily: Nunito Sans\n    fontSize: 26px\n    fontWeight: '800'\n    lineHeight: 34px\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Nunito Sans\n    fontSize: 24px\n    fontWeight: '800'\n    lineHeight: 32px\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Nunito Sans\n    fontSize: 20px\n    fontWeight: '700'\n    lineHeight: 28px\n  body-lg:\n    fontFamily: Nunito Sans\n    fontSize: 18px\n    fontWeight: '600'\n    lineHeight: 26px\n  body-md:\n    fontFamily: Nunito Sans\n    fontSize: 16px\n    fontWeight: '600'\n    lineHeight: 24px\n  label-lg:\n    fontFamily: Nunito Sans\n    fontSize: 16px\n    fontWeight: '800'\n    lineHeight: 20px\n    letterSpacing: 0.02em\n  label-md:\n    fontFamily: Nunito Sans\n    fontSize: 14px\n    fontWeight: '700'\n    lineHeight: 18px\n    letterSpacing: 0.01em\n  caption:\n    fontFamily: Nunito Sans\n    fontSize: 13px\n    fontWeight: '700'\n    lineHeight: 18px\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  gutter: 1.25rem\n  gutter-mobile: 0.625rem\n  margin: 1.875rem\n  margin-mobile: 1.25rem\n  space-xs: 0.3125rem\n  space-sm: 0.625rem\n  space-md: 1.25rem\n  space-lg: 1.875rem\n  space-xl: 2.5rem\n---\n\n## Brand & Style\n\nThis design system serves deaf and hard-of-hearing students mastering academic curriculum and sign language simultaneously. The aesthetic balances gamified delight with profound academic respect, avoiding trivializing tropes (such as points, badges, or auditory-only chimes). Instead, motivation stems from visible progress, tactile feedback, and total visual clarity.\n\nThe visual style is **Tactile Neomorphic-Pop**: high-contrast, structured, and inherently physical. Large, chunky interactive surfaces respond with tangible press states, anchoring every interaction with physical certainty. Generous whitespace, unambiguous typography, and high-contrast boundaries ensure an interface free of cognitive clutter and visual fatigue.\n\n### Core Principles\n- **Visual-First Certainty**: Since audio cues are absent or secondary, all feedback is dual-encoded through distinct color shifts, motion, iconography, and text labels.\n- **Physical Responsiveness**: Buttons and interactive tiles employ offset bottom borders that compress mechanically upon click or tap, mimicking real-world switches.\n- **Respectful Gamification**: Progress is tracked through concept mastery pathways and comprehension completion rather than disposable XP or competitive point tallies.\n- **Cognitive Ergonomics**: Restful pale backgrounds reduce screen glare, paired with charcoal typography calibrated well above accessibility thresholds.\n\n## Colors\n\nThe palette relies on a sunny, low-fatigue backdrop paired with clean white foreground modules, punchy tactile actions, and high-contrast text.\n\n### Color Roles & Accessibility Rules\n- **Base Canvas (`#DDF4FF`)**: A soft, calming sky wash that eliminates the harsh glare of raw white screens during extended learning sessions.\n- **Surface Layer (`#FFFFFF`)**: Pure white reserved for modular cards, dialogue containers, and interactive option tiles.\n- **Primary Action (`#A5ED6E`)**: High-energy lime green used for positive progress meters and forward-moving primary buttons. Always paired with near-black (`#111111`) text or iconography to surpass WCAG AAA contrast standards. Its structural 3D base uses `#72B043`.\n- **Secondary / Action Retry (`#FF7B54`)**: Warm coral-orange dedicated to \"try again\" states, revision alerts, and non-punitive corrections. Never used without an accompanying icon. Its structural 3D base uses `#CC5028`.\n- **Accent & Decorative (`#1CB0F6`)**: Bright cyan-blue restricted strictly to non-text decorative badges, structural borders, active state rings, and visual highlights.\n- **Readable Blue (`#0B6FB0`)**: Used exclusively whenever blue is applied to text, instructional links, or critical visual glyphs to guarantee WCAG AAA compliance against white surfaces.\n- **Typography Neutrals**: Primary body and heading copy is set in Charcoal (`#3C3C3C`). Supporting metadata, secondary instructions, and captions use Slate (`#5A5A5A`). Washed-out or light gray text is strictly forbidden.\n- **Structural Outlines (`#E5F2F8`)**: Soft perimeter borders framing white cards against the sky canvas to preserve crisp edge definition.\n\n## Typography\n\nTypography uses **Nunito Sans** uniformly across all tiers to provide rounded, approachable, and legible letterforms. The typeface’s open apertures and clean counters enhance reading speed and word recognition for visual learners.\n\n### Typographic Rules\n- **Minimum Body Size**: No instructional copy or interface content may scale below `16px`. Captions (`13px`) are restricted solely to secondary metadata, timestamps, and auxiliary assistive tags.\n- **Weight Calibration**: Because rounded fonts can lose definition at thinner weights, `600` (SemiBold) is the operational baseline for standard reading text. Titled headings and interactive control triggers use `700` and `800` (Bold and ExtraBold).\n- **Line Heights**: Generously spaced leading ensures clear optical separation between lines, preventing visual crowding for readers utilizing real-time visual tracking or closed captions.\n\n## Layout & Spacing\n\nThis design system uses a strict **10px base unit system** (`0.625rem`). All paddings, gap measures, and layout rhythms are multiples of 5px or 10px to establish consistent visual cadence across every viewport.\n\n### Layout Rhythm & Fluid Grid\n- **Desktop (1024px and above)**: 12-column layout with a maximum container boundary of `1200px`. Section margins are set to `30px` (`1.875rem`) with gutters of `20px` (`1.25rem`). Multi-column split views prioritize side-by-side sign video viewports and accompanying exercise fields.\n- **Tablet (768px – 1023px)**: 8-column layout with `20px` gutters and `20px` canvas margins. Instructional videos transition above interactive modules.\n- **Mobile (Up to 767px)**: 4-column layout with `10px` (`0.625rem`) gutters and `20px` (`1.25rem`) outer margin. Touch controls snap to sticky bottom anchor bars for one-handed operation.\n- **Spacing Token Map**:\n  - `space-xs`: `5px` (`0.3125rem`) – micro-gaps between badge icons and companion copy.\n  - `space-sm`: `10px` (`0.625rem`) – interior control padding and tight component clusters.\n  - `space-md`: `20px` (`1.25rem`) – internal card padding, standard vertical flow gap.\n  - `space-lg`: `30px` (`1.875rem`) – gaps separating distinct lesson cards and exercise stages.\n  - `space-xl`: `40px` (`2.5rem`) – major structural section dividers.\n\n## Elevation & Depth\n\nRather than relying on atmospheric, hazy drop shadows that degrade clarity, this design system creates depth through **Physical Solid Extrusions and Crisp Borders**.\n\n### Depth Layers\n- **Level 0 (Canvas Base)**: Flat sky blue background (`#DDF4FF`).\n- **Level 1 (Surface Cards & Modals)**: Pure white surface (`#FFFFFF`) with a `2px` solid border in `#D4ECF7` and a flat vertical drop offset: `0px 4px 0px 0px rgba(28, 176, 246, 0.12)`. No blur is used; separation is clean, geometric, and distinct.\n- **Level 2 (Tactile Interactive Components)**: Buttons and clickable tiles feature a solid `4px` bottom extrusion border. When depressed, the component physically translates downward along the Y-axis by `2px` to `3px`, collapsing the bottom lip to simulate real hardware keystrokes.\n- **Focus & Selection**: Selected option cards replace the baseline border with a `3px` solid `#1CB0F6` outline coupled with a faint inner tint (`rgba(28, 176, 246, 0.06)`), ensuring unambiguous visual feedback without color-alone dependency.\n\n## Shapes\n\nThe interface is defined by approachable, rounded forms. All structural content cards, primary push buttons, and input modules share a standardized **12px corner radius**.\n\n### Shape Tokens & Radius Rules\n- **Base Components (`12px`)**: Applied consistently to lesson cards, prompt surfaces, action buttons, camera/video viewports, and interactive choice blocks.\n- **Pill Modules (`9999px`)**: Reserved for metadata chips, progress trackers, step badges, and status pills to distinguish them from pressable rectangular cards.\n- **Micro Radii (`6px`)**: Applied to internal controls like slider thumbs, checkbox handles, and sub-tags within dense layouts.\n\n## Components\n\n### Buttons\n- **Touch Target & Size**: Minimum height is `48px` (exceeding the standard `44px` target) with `12px` corner radii and horizontal padding of `20px`.\n- **Primary Action (Proceed / Confirm)**: Fill `#A5ED6E`, text `#111111`, bottom border `4px solid #72B043`. On `:active` or `:pressed`, the element shifts `translateY(3px)` and the border compresses to `1px solid #72B043`.\n- **Secondary / Retry**: Fill `#FF7B54`, text `#FFFFFF`, bottom border `4px solid #CC5028`. Paired with a bold undo/retry icon.\n- **Neutral / Outline**: Fill `#FFFFFF`, text `#3C3C3C`, side and top border `2px solid #E5E5E5`, bottom border `4px solid #D0D0D0`.\n- **Focus Ring**: A visible `3px` solid `#0B6FB0` offset ring appears on keyboard navigation for clear visual focus.\n\n### Interactive Option Cards (Multiple Choice & Sign Matching)\n- **Resting**: Fill `#FFFFFF`, `2px solid #E2EFF5`, bottom border `4px solid #D0E4ED`, radius `12px`, padding `20px`.\n- **Active / Focused**: Border shifts to `2px solid #1CB0F6` with a bottom lip of `4px solid #0B6FB0`.\n- **Correct State**: Fill `rgba(165, 237, 110, 0.15)`, border `2px solid #72B043`, bottom border `4px solid #72B043`, accompanied by a bold checkmark icon.\n- **Incorrect State**: Fill `rgba(255, 123, 84, 0.12)`, border `2px solid #CC5028`, bottom border `4px solid #CC5028`, accompanied by a retry icon.\n\n### Form Inputs & Text Fields\n- Clean white background, `48px` minimum height, `12px` border radius, framed by a `2px solid #D0E4ED` border.\n- Text color is `#3C3C3C` with placeholder text set in Slate `#5A5A5A`.\n- Active focus displays a `2px solid #0B6FB0` border with a subtle `3px` focus glow ring.\n\n### Checkboxes & Toggle Controls\n- Custom square box (`24px × 24px`) with `6px` radius, `2px solid #5A5A5A`.\n- When checked: Fill `#A5ED6E`, border `#72B043`, housing a heavy `#111111` check glyph. Avoid thin lines that might compromise visual verification.\n\n### Status Chips & Progress Indicators\n- **Linear Progress Bars**: Track container with `16px` height, radius `9999px`, background `#FFFFFF`, border `2px solid #D0E4ED`. The active fill is `#A5ED6E` with a bright glossy cap indicator for immediate reading.\n- **Concept Badges**: Pill-shaped (`radius: 9999px`), padding `6px 14px`, text `#0B6FB0`, background `rgba(28, 176, 246, 0.12)`, accompanied by a bold category icon.\n\n### Video & Sign Demonstration Canvas\n- Framed in a pure white wrapper with a `12px` border radius and a `2px solid #D4ECF7` contour.\n- Integrated video controls are high contrast, featuring closed captions rendered in `#FFFFFF` on a `#111111` solid backdrop at `16px` minimum font size.\n- Video playback speeds include quick-toggle buttons (`0.5x`, `0.75x`, `1x`) designed as chunky tactile buttons for simple sign analysis.",
+        "colorVariant": "FIDELITY",
+        "overridePrimaryColor": "#a5ed6e",
+        "overrideSecondaryColor": "#ff7b54",
+        "overrideTertiaryColor": "#1cb0f6",
+        "overrideNeutralColor": "#3c3c3c",
+        "spacingScale": 2,
+        "typography": {
+          "label-lg": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "16px",
+            "fontWeight": "800",
+            "lineHeight": "20px",
+            "letterSpacing": "0.02em"
+          },
+          "headline-lg": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "24px",
+            "fontWeight": "800",
+            "lineHeight": "32px",
+            "letterSpacing": "-0.01em"
+          },
+          "headline-md": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "20px",
+            "fontWeight": "700",
+            "lineHeight": "28px"
+          },
+          "label-md": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "14px",
+            "fontWeight": "700",
+            "lineHeight": "18px",
+            "letterSpacing": "0.01em"
+          },
+          "headline-xl": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "32px",
+            "fontWeight": "800",
+            "lineHeight": "40px",
+            "letterSpacing": "-0.02em"
+          },
+          "body-lg": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "18px",
+            "fontWeight": "600",
+            "lineHeight": "26px"
+          },
+          "body-md": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "16px",
+            "fontWeight": "600",
+            "lineHeight": "24px"
+          },
+          "caption": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "lineHeight": "18px"
+          },
+          "headline-xl-mobile": {
+            "fontFamily": "Nunito Sans",
+            "fontSize": "26px",
+            "fontWeight": "800",
+            "lineHeight": "34px",
+            "letterSpacing": "-0.01em"
+          }
+        },
+        "spacing": {
+          "space-xs": "0.3125rem",
+          "margin": "1.875rem",
+          "gutter": "1.25rem",
+          "space-sm": "0.625rem",
+          "space-xl": "2.5rem",
+          "space-md": "1.25rem",
+          "margin-mobile": "1.25rem",
+          "gutter-mobile": "0.625rem",
+          "space-lg": "1.875rem"
+        },
+        "headlineFontFamily": "Nunito Sans",
+        "bodyFontFamily": "Nunito Sans",
+        "labelFontFamily": "Nunito Sans"
+      }
+    },
+    "version": "1"
+  }
+}
