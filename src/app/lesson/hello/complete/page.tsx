@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
 
 export default function LessonCompletePage() {
   return (
@@ -11,13 +12,12 @@ export default function LessonCompletePage() {
               {/* Top Summary Bar */}
               <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
                 <div className="flex items-center gap-space-sm w-full md:w-auto">
-                  <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm flex-shrink-0">
-                    <span className="material-symbols-outlined text-[24px]">check_circle</span>
+                  <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm shrink-0">
+                    <Icon name="check_circle" className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex flex-col">
                     <div className="flex items-center gap-space-xs">
                       <span className="font-headline-md text-on-surface font-extrabold">Lesson Completed!</span>
-                      <span className="text-headline-md">🎉</span>
                     </div>
                     <span className="font-caption text-on-surface-variant font-bold">Module 1 • Lesson 3 of 3 Finished</span>
                   </div>
@@ -28,7 +28,7 @@ export default function LessonCompletePage() {
                       <div className="w-2 h-2 rounded-full bg-surface-container-lowest opacity-75"></div>
                     </div>
                   </div>
-                  <span className="font-label-lg text-primary flex-shrink-0 font-extrabold">100%</span>
+                  <span className="font-label-lg text-primary shrink-0 font-extrabold">100%</span>
                 </div>
               </div>
 
@@ -37,11 +37,11 @@ export default function LessonCompletePage() {
                 <div className="relative mb-space-md">
                   <div className="w-28 h-28 rounded-full bg-primary-container/30 flex items-center justify-center p-2 mx-auto">
                     <div className="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
-                      <span className="material-symbols-outlined text-[48px] text-primary">front_hand</span>
+                      <Icon name="front_hand" className="w-12 h-12 text-primary" />
                     </div>
                   </div>
                   <div className="mt-space-sm inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-low text-on-surface rounded-full font-bold">
-                    <span className="material-symbols-outlined text-[16px] text-primary">workspace_premium</span>
+                    <Icon name="workspace_premium" className="w-4 h-4 text-primary shrink-0" />
                     <span className="font-label-md text-on-surface">Hello Unlocked</span>
                   </div>
                 </div>
@@ -60,13 +60,13 @@ export default function LessonCompletePage() {
                       Academic Progress Summary
                     </span>
                     <span className="font-caption text-primary flex items-center gap-1 bg-primary-container/20 px-2 py-0.5 rounded-full font-bold">
-                      <span className="material-symbols-outlined text-[14px]">verified</span> Validated
+                      <Icon name="verified" className="w-3.5 h-3.5 shrink-0" /> Validated
                     </span>
                   </div>
                   <div className="grid grid-cols-2 gap-space-sm">
                     <div className="bg-surface-container-lowest p-space-sm rounded-lg flex items-center gap-space-sm shadow-sm">
-                      <div className="w-9 h-9 rounded-lg bg-tertiary-container/40 flex items-center justify-center text-tertiary flex-shrink-0">
-                        <span className="material-symbols-outlined text-[20px]">spellcheck</span>
+                      <div className="w-9 h-9 rounded-lg bg-tertiary-container/40 flex items-center justify-center text-tertiary shrink-0">
+                        <Icon name="spellcheck" className="w-5 h-5 text-tertiary" />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="font-caption text-on-surface-variant truncate font-semibold">Signs learned</span>
@@ -77,8 +77,8 @@ export default function LessonCompletePage() {
                     </div>
 
                     <div className="bg-surface-container-lowest p-space-sm rounded-lg flex items-center gap-space-sm shadow-sm">
-                      <div className="w-9 h-9 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary flex-shrink-0">
-                        <span className="material-symbols-outlined text-[20px]">ads_click</span>
+                      <div className="w-9 h-9 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary shrink-0">
+                        <Icon name="ads_click" className="w-5 h-5 text-secondary" />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="font-caption text-on-surface-variant truncate font-semibold">Practice attempts</span>
@@ -87,8 +87,8 @@ export default function LessonCompletePage() {
                     </div>
 
                     <div className="bg-surface-container-lowest p-space-sm rounded-lg flex items-center gap-space-sm shadow-sm">
-                      <div className="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant flex-shrink-0">
-                        <span className="material-symbols-outlined text-[20px]">schedule</span>
+                      <div className="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant shrink-0">
+                        <Icon name="schedule" className="w-5 h-5 text-on-surface-variant" />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="font-caption text-on-surface-variant truncate font-semibold">Time spent</span>
@@ -97,8 +97,8 @@ export default function LessonCompletePage() {
                     </div>
 
                     <div className="bg-surface-container-lowest p-space-sm rounded-lg flex items-center gap-space-sm shadow-sm">
-                      <div className="w-9 h-9 rounded-lg bg-primary-container/40 flex items-center justify-center text-primary flex-shrink-0">
-                        <span className="material-symbols-outlined text-[20px]">star</span>
+                      <div className="w-9 h-9 rounded-lg bg-primary-container/40 flex items-center justify-center text-primary shrink-0">
+                        <Icon name="star" className="w-5 h-5 text-primary" />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="font-caption text-on-surface-variant truncate font-semibold">Accuracy status</span>
@@ -110,8 +110,8 @@ export default function LessonCompletePage() {
 
                 {/* Callout */}
                 <div className="w-full bg-tertiary-container/20 rounded-xl p-space-sm mb-space-lg flex items-center gap-space-sm text-left">
-                  <div className="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm flex-shrink-0">
-                    <span className="material-symbols-outlined text-[18px]">psychology</span>
+                  <div className="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm shrink-0">
+                    <Icon name="psychology" className="w-5 h-5 text-tertiary" />
                   </div>
                   <p className="font-body-md text-on-tertiary-container text-sm font-semibold">
                     Regular practice strengthens muscle memory and visual spatial confidence.
@@ -125,26 +125,26 @@ export default function LessonCompletePage() {
                     href="/"
                   >
                     <span>Back to Path</span>
-                    <span className="material-symbols-outlined text-[22px]">roofing</span>
+                    <Icon name="roofing" className="w-5 h-5 shrink-0" />
                   </Link>
                   <Link
                     className="w-full order-2 sm:order-1 py-3.5 px-6 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-md transition-all flex items-center justify-center gap-2 font-bold cursor-pointer"
                     href="/lesson/hello/practice"
                   >
                     <span>Practice Again</span>
-                    <span className="material-symbols-outlined text-[22px]">replay</span>
+                    <Icon name="replay" className="w-5 h-5 shrink-0" />
                   </Link>
                 </div>
               </div>
 
               {/* Bottom Badges */}
               <div className="w-full max-w-xl mx-auto flex items-center justify-between px-space-xs text-on-surface-variant font-semibold">
-                <div className="flex items-center gap-space-xs">
-                  <span className="material-symbols-outlined text-[18px] text-tertiary">accessibility_new</span>
+                <div className="flex items-center gap-1.5">
+                  <Icon name="accessibility_new" className="w-4 h-4 text-tertiary shrink-0" />
                   <span className="font-caption">Tactile Feedback Ready</span>
                 </div>
-                <div className="flex items-center gap-space-xs">
-                  <span className="material-symbols-outlined text-[18px] text-primary">closed_caption</span>
+                <div className="flex items-center gap-1.5">
+                  <Icon name="closed_caption" className="w-4 h-4 text-primary shrink-0" />
                   <span className="font-caption">Subtitles Enabled</span>
                 </div>
               </div>

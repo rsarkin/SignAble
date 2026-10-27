@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
 
 export default function WatchTheSignPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -52,10 +53,10 @@ export default function WatchTheSignPage() {
           <div className="flex items-center gap-3">
             <Link
               aria-label="Exit lesson"
-              className="w-10 h-10 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center transition-all"
+              className="w-10 h-10 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center transition-all cursor-pointer"
               href="/"
             >
-              <span className="material-symbols-outlined text-[20px]">close</span>
+              <Icon name="close" className="w-5 h-5" />
             </Link>
             <div className="flex flex-col">
               <span className="text-[12px] font-bold text-tertiary tracking-wide uppercase">Lesson 1 • Greetings</span>
@@ -77,7 +78,7 @@ export default function WatchTheSignPage() {
               </div>
             </div>
             <div className="flex items-center gap-1.5 bg-secondary-fixed/70 text-on-secondary-fixed px-3 py-1 rounded-full text-[13px] font-bold">
-              <span className="material-symbols-outlined text-secondary text-[18px]">local_fire_department</span>
+              <Icon name="fire" className="w-4 h-4 text-secondary shrink-0" />
               <span>1</span>
             </div>
           </div>
@@ -89,8 +90,8 @@ export default function WatchTheSignPage() {
         {/* Vocabulary Chips */}
         <div className="flex flex-wrap items-center justify-between gap-2.5">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-tertiary-container/50 text-tertiary flex items-center justify-center font-bold">
-              <span className="material-symbols-outlined text-[22px]">waving_hand</span>
+            <div className="w-9 h-9 rounded-xl bg-tertiary-container/50 text-tertiary flex items-center justify-center font-bold shrink-0">
+              <Icon name="waving_hand" className="w-5 h-5 text-tertiary" />
             </div>
             <div>
               <span className="text-[11px] font-extrabold text-tertiary tracking-wider uppercase">Vocabulary</span>
@@ -103,11 +104,11 @@ export default function WatchTheSignPage() {
               Open 5 Hand
             </span>
             <span className="inline-flex items-center gap-1.5 bg-surface-container-lowest border border-outline-variant/40 px-3 py-1 rounded-full text-[13px] font-bold text-on-surface-variant shadow-sm">
-              <span className="material-symbols-outlined text-tertiary text-[16px]">near_me</span>
+              <Icon name="near_me" className="w-4 h-4 text-tertiary shrink-0" />
               Forehead Arc
             </span>
             <span className="inline-flex items-center gap-1.5 bg-surface-container-lowest border border-outline-variant/40 px-3 py-1 rounded-full text-[13px] font-bold text-on-surface-variant shadow-sm">
-              <span className="material-symbols-outlined text-secondary text-[16px]">sentiment_satisfied</span>
+              <Icon name="sentiment_satisfied" className="w-4 h-4 text-secondary shrink-0" />
               Warm Smile
             </span>
           </div>
@@ -115,7 +116,6 @@ export default function WatchTheSignPage() {
 
         {/* Hero Video / Demonstration Player */}
         <div className="relative w-full aspect-video sm:aspect-[16/9] rounded-3xl bg-inverse-surface overflow-hidden shadow-xl ring-1 ring-black/5 group">
-          {/* Visual Sign demonstration */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt="Instructor demonstrating the ASL sign for Hello"
@@ -135,11 +135,11 @@ export default function WatchTheSignPage() {
           {/* Angle switch button */}
           <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
             <button
-              className="bg-black/50 hover:bg-black/75 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-[13px] font-bold flex items-center gap-1.5 border border-white/10 transition-colors shadow-sm"
+              className="bg-black/50 hover:bg-black/75 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-[13px] font-bold flex items-center gap-1.5 border border-white/10 transition-colors shadow-sm cursor-pointer"
               onClick={() => setIsSideAngle(!isSideAngle)}
               type="button"
             >
-              <span className="material-symbols-outlined text-[17px]">360</span>
+              <Icon name="360" className="w-4 h-4 shrink-0" />
               <span>{isSideAngle ? 'Front View' : 'Side Profile'}</span>
             </button>
           </div>
@@ -152,9 +152,11 @@ export default function WatchTheSignPage() {
               onClick={togglePlay}
               type="button"
             >
-              <span className="material-symbols-outlined text-[36px] sm:text-[44px] ml-0.5">
-                {isPlaying ? 'pause' : 'play_arrow'}
-              </span>
+              {isPlaying ? (
+                <Icon name="pause" className="w-9 h-9 sm:w-11 sm:h-11" />
+              ) : (
+                <Icon name="play" className="w-9 h-9 sm:w-11 sm:h-11 ml-1" />
+              )}
             </button>
           </div>
 
@@ -180,7 +182,7 @@ export default function WatchTheSignPage() {
             <div className="flex items-center justify-between gap-3 pt-1 text-white">
               <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md rounded-full p-1 border border-white/10">
                 <button
-                  className={`h-7 px-3 rounded-full text-[12px] font-extrabold transition-all ${
+                  className={`h-7 px-3 rounded-full text-[12px] font-extrabold transition-all cursor-pointer ${
                     speed === 1
                       ? 'bg-primary-container text-on-primary-container'
                       : 'text-white/90 hover:text-white hover:bg-white/15'
@@ -191,7 +193,7 @@ export default function WatchTheSignPage() {
                   1.0x
                 </button>
                 <button
-                  className={`h-7 px-3 rounded-full text-[12px] font-extrabold transition-all ${
+                  className={`h-7 px-3 rounded-full text-[12px] font-extrabold transition-all cursor-pointer ${
                     speed === 0.5
                       ? 'bg-primary-container text-on-primary-container'
                       : 'text-white/90 hover:text-white hover:bg-white/15'
@@ -205,7 +207,7 @@ export default function WatchTheSignPage() {
 
               <div className="flex items-center gap-2">
                 <button
-                  className={`h-8 px-3 rounded-full backdrop-blur-md border border-white/10 text-[12px] font-bold flex items-center gap-1 transition-colors ${
+                  className={`h-8 px-3 rounded-full backdrop-blur-md border border-white/10 text-[12px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer ${
                     isMirrored
                       ? 'bg-primary-container text-on-primary-container'
                       : 'bg-black/40 hover:bg-black/60 text-white/90 hover:text-white'
@@ -213,18 +215,18 @@ export default function WatchTheSignPage() {
                   onClick={() => setIsMirrored(!isMirrored)}
                   type="button"
                 >
-                  <span className="material-symbols-outlined text-[17px]">flip</span>
+                  <Icon name="flip" className="w-4 h-4 shrink-0" />
                   <span>Mirror</span>
                 </button>
                 <button
-                  className={`h-8 w-8 rounded-full backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors ${
+                  className={`h-8 w-8 rounded-full backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors cursor-pointer ${
                     isLooping ? 'bg-primary-container text-on-primary-container' : 'bg-black/40 text-white'
                   }`}
                   onClick={() => setIsLooping(!isLooping)}
                   title="Loop playback"
                   type="button"
                 >
-                  <span className="material-symbols-outlined text-[17px]">sync</span>
+                  <Icon name="sync" className="w-4 h-4 shrink-0" />
                 </button>
               </div>
             </div>
@@ -238,7 +240,7 @@ export default function WatchTheSignPage() {
               3 Checkpoints
             </span>
             <span className="text-[12px] font-bold text-tertiary flex items-center gap-1">
-              <span className="material-symbols-outlined text-[16px]">touch_app</span> Follow along
+              <Icon name="touch_app" className="w-4 h-4 shrink-0" /> Follow along
             </span>
           </div>
 
@@ -246,7 +248,7 @@ export default function WatchTheSignPage() {
             {/* Step 1 */}
             <div className="bg-surface-container-lowest rounded-2xl p-4 sm:p-5 border border-surface-container-highest/60 shadow-sm flex sm:flex-col items-center sm:items-start gap-3.5 transition-all hover:border-primary-container hover:shadow-md">
               <div className="w-12 h-12 rounded-2xl bg-tertiary-container/40 text-tertiary flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-[26px]">pan_tool</span>
+                <Icon name="pan_tool" className="w-6 h-6 text-tertiary" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-1.5 mb-0.5">
@@ -255,15 +257,13 @@ export default function WatchTheSignPage() {
                 <h3 className="text-[16px] font-extrabold text-on-surface leading-snug">Open Palm</h3>
                 <p className="text-[13px] font-semibold text-on-surface-variant mt-0.5">Fingers together, relaxed flat 5</p>
               </div>
-              <span className="material-symbols-outlined text-primary text-[20px] shrink-0 sm:mt-auto sm:pt-2">
-                check_circle
-              </span>
+              <Icon name="check_circle" className="w-5 h-5 text-primary shrink-0 sm:mt-auto sm:pt-2" />
             </div>
 
             {/* Step 2 */}
             <div className="bg-surface-container-lowest rounded-2xl p-4 sm:p-5 border border-surface-container-highest/60 shadow-sm flex sm:flex-col items-center sm:items-start gap-3.5 transition-all hover:border-primary-container hover:shadow-md">
               <div className="w-12 h-12 rounded-2xl bg-primary-container/40 text-on-primary-container flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-[26px]">my_location</span>
+                <Icon name="my_location" className="w-6 h-6 text-on-primary-container" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-1.5 mb-0.5">
@@ -272,15 +272,13 @@ export default function WatchTheSignPage() {
                 <h3 className="text-[16px] font-extrabold text-on-surface leading-snug">Temple Touch</h3>
                 <p className="text-[13px] font-semibold text-on-surface-variant mt-0.5">Hand 2 inches near forehead</p>
               </div>
-              <span className="material-symbols-outlined text-primary text-[20px] shrink-0 sm:mt-auto sm:pt-2">
-                check_circle
-              </span>
+              <Icon name="check_circle" className="w-5 h-5 text-primary shrink-0 sm:mt-auto sm:pt-2" />
             </div>
 
             {/* Step 3 */}
             <div className="bg-surface-container-lowest rounded-2xl p-4 sm:p-5 border border-surface-container-highest/60 shadow-sm flex sm:flex-col items-center sm:items-start gap-3.5 transition-all hover:border-primary-container hover:shadow-md">
               <div className="w-12 h-12 rounded-2xl bg-secondary-fixed/50 text-secondary flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-[26px]">waves</span>
+                <Icon name="waves" className="w-6 h-6 text-secondary" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-1.5 mb-0.5">
@@ -289,9 +287,7 @@ export default function WatchTheSignPage() {
                 <h3 className="text-[16px] font-extrabold text-on-surface leading-snug">Gentle Wave</h3>
                 <p className="text-[13px] font-semibold text-on-surface-variant mt-0.5">Smooth outward salute arc</p>
               </div>
-              <span className="material-symbols-outlined text-primary text-[20px] shrink-0 sm:mt-auto sm:pt-2">
-                check_circle
-              </span>
+              <Icon name="check_circle" className="w-5 h-5 text-primary shrink-0 sm:mt-auto sm:pt-2" />
             </div>
           </div>
         </div>
@@ -299,12 +295,12 @@ export default function WatchTheSignPage() {
         {/* Bottom Floating Action Bar */}
         <div className="sticky bottom-4 z-30 mt-2 bg-surface-container-lowest/95 backdrop-blur-md border border-surface-container-highest/80 rounded-2xl p-3 sm:p-4 shadow-xl flex items-center justify-between gap-3">
           <button
-            className="h-12 px-4 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-bold text-[14px] flex items-center gap-2 transition-all active:scale-95"
+            className="h-12 px-4 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-bold text-[14px] flex items-center gap-2 transition-all active:scale-95 cursor-pointer"
             onClick={handleReplay}
             title="Replay video demonstration"
             type="button"
           >
-            <span className="material-symbols-outlined text-[22px] text-tertiary">replay</span>
+            <Icon name="replay" className="w-5 h-5 text-tertiary shrink-0" />
             <span className="hidden sm:inline">Replay</span>
           </button>
 
@@ -317,7 +313,7 @@ export default function WatchTheSignPage() {
               href="/lesson/hello/practice"
             >
               <span>I&apos;m ready to try</span>
-              <span className="material-symbols-outlined text-[22px]">arrow_forward</span>
+              <Icon name="arrow_forward" className="w-5 h-5 shrink-0" />
             </Link>
           </div>
         </div>

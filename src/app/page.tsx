@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
 
 export default function LearningPathPage() {
   return (
@@ -17,13 +18,13 @@ export default function LearningPathPage() {
             </Link>
           </div>
           <div className="flex items-center gap-space-sm">
-            <div className="flex items-center gap-1 bg-surface-container-high text-secondary px-3 py-1 rounded-full font-label-md text-label-md">
-              <span className="material-symbols-outlined text-[18px]">local_fire_department</span>
-              <span>1 day</span>
+            <div className="flex items-center gap-1.5 bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full font-label-md text-label-md shadow-[0_2px_0_0_#ffb5a0]">
+              <Icon name="fire" className="w-4 h-4 text-secondary shrink-0" />
+              <span className="font-bold">1 day</span>
             </div>
             <div className="flex items-center gap-space-xs pl-space-xs">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <span className="material-symbols-outlined text-on-primary text-[18px]">person</span>
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+                <Icon name="person" className="w-4 h-4 text-on-primary" />
               </div>
             </div>
           </div>
@@ -42,8 +43,8 @@ export default function LearningPathPage() {
                 {/* Header Banner */}
                 <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_0_0_#d0e4ed] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md mb-space-xl">
                   <div className="flex items-center gap-space-md">
-                    <div className="w-14 h-14 rounded-xl bg-tertiary-container flex items-center justify-center text-tertiary shadow-[0_3px_0_0_#88ceff]">
-                      <span className="material-symbols-outlined text-[32px]">school</span>
+                    <div className="w-14 h-14 rounded-xl bg-tertiary-container flex items-center justify-center text-tertiary shadow-[0_3px_0_0_#88ceff] shrink-0">
+                      <Icon name="school" className="w-8 h-8 text-tertiary" />
                     </div>
                     <div>
                       <div className="flex items-center gap-space-xs">
@@ -59,8 +60,8 @@ export default function LearningPathPage() {
                       </h1>
                     </div>
                   </div>
-                  <div className="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-lg">
-                    <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                  <div className="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-lg shrink-0">
+                    <Icon name="check_circle" className="w-5 h-5 text-primary shrink-0" />
                     <span className="font-label-md text-label-md text-on-surface font-bold">0 / 5 Completed</span>
                   </div>
                 </div>
@@ -70,36 +71,12 @@ export default function LearningPathPage() {
                   
                   {/* NODE 1: Hello (ACTIVE & FEATURED) */}
                   <div className="relative z-10 flex flex-col items-center mb-space-xl w-full">
-                    {/* Bouncing Tooltip Badge */}
-                    <div className="mb-2 animate-bounce flex flex-col items-center">
-                      <div className="bg-[#111111] text-surface-container-lowest font-label-lg text-label-lg px-4 py-1.5 rounded-full shadow-[0_4px_0_0_#333333] flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-primary-container text-[20px]">play_arrow</span>
-                        <span className="font-bold">START!</span>
-                      </div>
-                      <div className="w-0 h-0 border-x-8 border-x-transparent border-t-8 border-t-[#111111]"></div>
-                    </div>
-
-                    {/* Active Node Disc */}
-                    <div className="relative flex items-center justify-center">
-                      <span className="absolute w-28 h-28 rounded-full bg-primary-container opacity-40 animate-ping pointer-events-none"></span>
-                      <Link
-                        aria-label="Start Hello Lesson"
-                        className="relative w-24 h-24 rounded-full bg-[#A5ED6E] border-4 border-[#111111] shadow-[0_6px_0_0_#111111] active:translate-y-1 active:shadow-[0_2px_0_0_#111111] transition-transform flex flex-col items-center justify-center cursor-pointer group"
-                        href="/lesson/hello/intro"
-                      >
-                        <span className="text-3xl filter drop-shadow">👋</span>
-                        <span className="font-label-md text-label-md text-[#111111] font-bold mt-0.5 tracking-tight">
-                          Hello
-                        </span>
-                      </Link>
-                    </div>
-
                     {/* Featured Action Card Attached to Node 1 */}
-                    <div className="w-full mt-6 bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-[0_6px_0_0_#c4dfed] relative overflow-hidden transition-all duration-200">
+                    <div className="w-full bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-[0_6px_0_0_#c4dfed] relative overflow-hidden transition-all duration-200">
                       <div className="absolute top-0 left-0 h-2 w-full bg-[#A5ED6E]"></div>
                       <div className="flex flex-col md:flex-row gap-space-md items-start">
                         {/* Preview Visual */}
-                        <div className="w-full md:w-44 h-36 rounded-lg bg-tertiary-container relative flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <div className="w-full md:w-44 h-36 rounded-lg bg-tertiary-container relative flex items-center justify-center overflow-hidden shrink-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             alt="Visual demonstration for Hello"
@@ -108,7 +85,7 @@ export default function LearningPathPage() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-2">
                             <span className="font-caption text-caption text-surface-container-lowest flex items-center gap-1 bg-black/50 px-2 py-0.5 rounded-full font-bold">
-                              <span className="material-symbols-outlined text-[14px] text-primary-container">videocam</span> ASL Sign
+                              <Icon name="videocam" className="w-3.5 h-3.5 text-primary-container shrink-0" /> ASL Sign
                             </span>
                           </div>
                         </div>
@@ -117,14 +94,14 @@ export default function LearningPathPage() {
                         <div className="flex-1 flex flex-col justify-between">
                           <div>
                             <div className="flex flex-wrap items-center gap-space-xs mb-2">
-                              <span className="font-label-md text-label-md text-on-tertiary-container bg-tertiary-container px-2.5 py-0.5 rounded-full flex items-center gap-1 font-bold">
-                                <span>⏱️</span> 3 min
+                              <span className="font-label-md text-label-md text-on-tertiary-container bg-tertiary-container px-2.5 py-0.5 rounded-full font-bold">
+                                3 min
                               </span>
-                              <span className="font-label-md text-label-md text-on-primary-container bg-primary-container px-2.5 py-0.5 rounded-full flex items-center gap-1 font-bold">
-                                <span>🌱</span> Beginner
+                              <span className="font-label-md text-label-md text-on-primary-container bg-primary-container px-2.5 py-0.5 rounded-full font-bold">
+                                Beginner
                               </span>
-                              <span className="font-label-md text-label-md text-on-secondary-fixed bg-secondary-fixed px-2.5 py-0.5 rounded-full flex items-center gap-1 font-bold">
-                                <span>📷</span> Camera practice
+                              <span className="font-label-md text-label-md text-on-secondary-fixed bg-secondary-fixed px-2.5 py-0.5 rounded-full font-bold">
+                                Camera practice
                               </span>
                             </div>
                             <h2 className="font-headline-md text-headline-md text-[#111111] font-bold">
@@ -135,20 +112,20 @@ export default function LearningPathPage() {
                             </p>
                           </div>
 
-                          {/* Chunky Physical Button */}
+                          {/* Chunky Physical Buttons */}
                           <div className="mt-space-md pt-2 flex flex-col sm:flex-row items-center gap-space-sm">
                             <Link
                               className="w-full sm:w-auto flex-1 min-h-[48px] bg-[#A5ED6E] text-[#111111] font-label-lg text-label-lg rounded-xl px-space-lg flex items-center justify-center gap-space-xs shadow-[0_4px_0_0_#72B043] active:translate-y-1 active:shadow-[0_1px_0_0_#72B043] transition-all font-extrabold hover:brightness-105"
                               href="/lesson/hello/intro"
                             >
-                              <span className="material-symbols-outlined text-[22px] text-[#111111]">play_circle</span>
+                              <Icon name="play_circle" className="w-5 h-5 text-[#111111] shrink-0" />
                               <span>Start Lesson</span>
                             </Link>
                             <Link
-                              className="w-full sm:w-auto min-h-[48px] bg-surface-container-low text-on-surface font-label-md text-label-md rounded-xl px-space-md flex items-center justify-center gap-1 shadow-[0_4px_0_0_#d0e4ed] active:translate-y-1 active:shadow-[0_1px_0_0_#d0e4ed] transition-all hover:bg-surface-container font-bold"
+                              className="w-full sm:w-auto min-h-[48px] bg-surface-container-low text-on-surface font-label-md text-label-md rounded-xl px-space-md flex items-center justify-center gap-1.5 shadow-[0_4px_0_0_#d0e4ed] active:translate-y-1 active:shadow-[0_1px_0_0_#d0e4ed] transition-all hover:bg-surface-container font-bold"
                               href="/lesson/hello/watch"
                             >
-                              <span className="material-symbols-outlined text-[20px] text-tertiary">visibility</span>
+                              <Icon name="visibility" className="w-4 h-4 text-tertiary shrink-0" />
                               <span>Watch Sign</span>
                             </Link>
                           </div>
@@ -157,35 +134,16 @@ export default function LearningPathPage() {
                     </div>
                   </div>
 
-                  {/* Future Nodes (Locked Representation matching Stitch design) */}
-                  <div className="flex flex-col items-center gap-8 opacity-65 w-full">
-                    {/* Node 2 */}
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 rounded-full bg-surface-container-high border-2 border-surface-container-highest shadow-md flex items-center justify-center text-on-surface-variant font-bold">
-                        <span className="material-symbols-outlined text-[24px]">lock</span>
-                      </div>
-                      <span className="font-caption text-caption text-on-surface-variant mt-1 font-bold">2. Numbers 1–5</span>
-                    </div>
-
-                    {/* Node 3 */}
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 rounded-full bg-surface-container-high border-2 border-surface-container-highest shadow-md flex items-center justify-center text-on-surface-variant font-bold">
-                        <span className="material-symbols-outlined text-[24px]">lock</span>
-                      </div>
-                      <span className="font-caption text-caption text-on-surface-variant mt-1 font-bold">3. Thank You</span>
-                    </div>
-                  </div>
-
                 </div>
               </div>
 
               {/* Right Sidebar */}
               <div className="lg:col-span-4 flex flex-col gap-space-md sticky top-28">
-                {/* Daily Target */}
+                {/* Daily Target Card */}
                 <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_0_0_#d0e4ed]">
                   <div className="flex items-center justify-between pb-space-sm">
                     <div className="flex items-center gap-space-xs">
-                      <span className="material-symbols-outlined text-secondary text-[24px]">flag</span>
+                      <Icon name="flag" className="w-5 h-5 text-secondary shrink-0" />
                       <h3 className="font-headline-md text-[18px] text-[#111111] font-bold">Daily Target</h3>
                     </div>
                     <span className="font-caption text-caption text-secondary font-bold bg-secondary-fixed px-2 py-0.5 rounded-full">
@@ -194,8 +152,8 @@ export default function LearningPathPage() {
                   </div>
                   <div className="mt-2 bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
                     <div className="flex items-center gap-space-sm">
-                      <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
-                        <span className="material-symbols-outlined text-[22px]">play_lesson</span>
+                      <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shrink-0">
+                        <Icon name="play_lesson" className="w-5 h-5" />
                       </div>
                       <div>
                         <p className="font-label-md text-label-md text-[#111111] font-bold">Today&apos;s Goal</p>
@@ -218,29 +176,108 @@ export default function LearningPathPage() {
                 {/* Streak Card */}
                 <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_0_0_#d0e4ed] flex items-center justify-between">
                   <div className="flex items-center gap-space-sm">
-                    <div className="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center shadow-[0_3px_0_0_#ffb5a0]">
-                      <span className="material-symbols-outlined text-secondary text-[28px]">local_fire_department</span>
+                    <div className="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center shadow-[0_3px_0_0_#ffb5a0] shrink-0">
+                      <Icon name="fire" className="w-7 h-7 text-secondary" />
                     </div>
                     <div>
                       <p className="font-label-md text-label-md text-on-surface-variant font-semibold">Consistent Routine</p>
-                      <h4 className="font-headline-md text-headline-md text-[#111111] font-bold">Streak: 1 Day 🔥</h4>
+                      <h4 className="font-headline-md text-headline-md text-[#111111] font-bold">Streak: 1 Day</h4>
                     </div>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-caption text-caption text-secondary font-extrabold uppercase tracking-wide">
+                      Committed
+                    </span>
                   </div>
                 </div>
 
-                {/* Accessible Learning Notice */}
-                <div className="w-full bg-tertiary-container/20 rounded-xl p-space-md border border-tertiary-container/40 flex items-start gap-space-sm">
-                  <span className="material-symbols-outlined text-tertiary text-[22px] mt-0.5">verified_user</span>
-                  <p className="font-caption text-caption text-on-surface-variant leading-relaxed">
-                    <strong>Browser-Based Learning:</strong> All camera input is processed locally in your browser. No video is ever stored or transmitted.
-                  </p>
+                {/* Accessibility Tip Card */}
+                <div className="w-full bg-tertiary-container/30 rounded-xl p-space-md shadow-[0_4px_0_0_#b5dfff]">
+                  <div className="flex items-start gap-space-sm">
+                    <div className="w-10 h-10 rounded-lg bg-tertiary-container flex items-center justify-center text-tertiary shrink-0">
+                      <Icon name="lightbulb" className="w-5 h-5 text-tertiary" />
+                    </div>
+                    <div>
+                      <h4 className="font-label-lg text-label-lg text-on-tertiary-container font-bold flex items-center gap-1">
+                        Accessibility Tip
+                      </h4>
+                      <p className="font-body-md text-body-md text-[#3C3C3C] mt-1 leading-snug text-sm">
+                        Practice in good, front-facing lighting for smooth hand motion and gesture recognition. Avoid backlighting.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-space-sm pt-space-xs flex items-center justify-between">
+                    <span className="font-caption text-caption text-tertiary flex items-center gap-1 font-bold">
+                      <Icon name="videocam" className="w-3.5 h-3.5" /> Studio calibrated
+                    </span>
+                    <Link className="font-label-md text-label-md text-tertiary hover:underline font-bold" href="/lesson/hello/practice">
+                      Test Camera
+                    </Link>
+                  </div>
                 </div>
+
+                {/* Module Progress Snapshot */}
+                <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_0_0_#d0e4ed]">
+                  <div className="flex items-center justify-between pb-space-sm">
+                    <h4 className="font-label-lg text-label-lg text-[#111111] font-bold">Module Progress</h4>
+                    <span className="font-caption text-caption text-on-surface-variant font-semibold">Unit 1 of 6</span>
+                  </div>
+                  <div className="grid grid-cols-5 gap-2 mt-2">
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-primary-container/20">
+                      <span className="font-caption text-caption text-primary font-bold">L1</span>
+                      <Icon name="radio_button_checked" className="w-4 h-4 text-primary mt-1" />
+                    </div>
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-surface-container-low opacity-60">
+                      <span className="font-caption text-caption text-outline font-bold">L2</span>
+                      <Icon name="lock" className="w-4 h-4 text-outline mt-1" />
+                    </div>
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-surface-container-low opacity-60">
+                      <span className="font-caption text-caption text-outline font-bold">L3</span>
+                      <Icon name="lock" className="w-4 h-4 text-outline mt-1" />
+                    </div>
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-surface-container-low opacity-60">
+                      <span className="font-caption text-caption text-outline font-bold">L4</span>
+                      <Icon name="lock" className="w-4 h-4 text-outline mt-1" />
+                    </div>
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-surface-container-low opacity-60">
+                      <span className="font-caption text-caption text-outline font-bold">L5</span>
+                      <Icon name="lock" className="w-4 h-4 text-outline mt-1" />
+                    </div>
+                  </div>
+                  <div className="mt-space-md p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+                    <span className="font-caption text-caption text-on-surface-variant font-semibold">
+                      No XP system: Mastery driven
+                    </span>
+                    <Icon name="verified" className="w-4 h-4 text-primary" />
+                  </div>
+                </div>
+
               </div>
 
             </div>
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="w-full bg-surface-container-low border-t border-surface-container-high/60">
+        <div className="max-w-[1200px] mx-auto px-margin py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+          <div className="flex items-center gap-space-sm">
+            <span className="font-label-md text-label-md text-on-surface font-bold">SignAble</span>
+            <span className="font-caption text-caption text-on-surface-variant font-semibold">
+              • Academic Visual Curriculum for Deaf &amp; Hard-of-Hearing Students
+            </span>
+          </div>
+          <div className="flex items-center gap-space-md">
+            <span className="font-caption text-caption text-on-surface-variant font-semibold">
+              All Visual Feedback Calibrated
+            </span>
+            <Link className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface font-bold" href="/">
+              Pathways
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

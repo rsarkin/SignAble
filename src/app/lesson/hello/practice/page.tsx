@@ -1,9 +1,40 @@
 'use client';
 
+import { Suspense, useMemo, useRef } from 'react';
 import Link from 'next/link';
-import { usePracticeSession } from '@/lib/session/usePracticeSession';
+import { useSearchParams } from 'next/navigation';
+import { usePracticeSession, type UrlTestingFlags } from '@/lib/session/usePracticeSession';
+import { Icon } from '@/components/ui/Icon';
+import { DebugHUD } from '@/components/ui/DebugHUD';
 
 export default function SignPracticeStudioPage() {
+  return (
+    <Suspense fallback={<div className="bg-surface min-h-screen" />}>
+      <SignPracticeStudioContent />
+    </Suspense>
+  );
+}
+
+function SignPracticeStudioContent() {
+  const searchParams = useSearchParams();
+
+  const flags = useMemo<UrlTestingFlags>(() => {
+    const debug = searchParams.get('debug') === '1' || searchParams.get('debug') === 'true';
+    const cvParam = searchParams.get('cv');
+    const cv = cvParam === 'on' ? 'on' : 'off';
+    const delegate = searchParams.get('delegate') === 'cpu' ? 'cpu' : 'gpu';
+    const resParam = searchParams.get('res');
+    const res = resParam === '360' || resParam === '720' ? (resParam as '360' | '720') : '480';
+    const overlay = searchParams.get('overlay') === 'off' ? 'off' : 'on';
+    const fpsParam = searchParams.get('fps');
+    const fps = fpsParam === '24' || fpsParam === 'max' ? (fpsParam as '24' | 'max') : '12';
+
+    return { debug, cv, delegate, res, overlay, fps };
+  }, [searchParams]);
+
+  const renderCountRef = useRef(0);
+  renderCountRef.current++;
+
   const {
     videoRef,
     canvasRef,
@@ -17,18 +48,21 @@ export default function SignPracticeStudioPage() {
     ariaMessage,
     isRecognized,
     fps,
-    openCvEnabled,
-    openCvAvailable,
-    setOpenCvEnabled,
     startVerification,
     resetSession,
     retryCamera,
-  } = usePracticeSession();
+    getDebugData,
+  } = usePracticeSession({ flags });
 
   const passedChecksCount = [checks.handOpen, checks.handRaised, checks.movement].filter(Boolean).length;
 
   return (
     <div className="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container">
+      {/* Debug HUD (visible only with ?debug=1) */}
+      {flags.debug && (
+        <DebugHUD getDebugData={getDebugData} renderCountRef={renderCountRef} />
+      )}
+
       {/* Hidden Live Region for Screen Readers */}
       <div aria-live="polite" className="sr-only">
         {ariaMessage || hint}
@@ -40,14 +74,14 @@ export default function SignPracticeStudioPage() {
           <div className="flex items-center gap-space-md">
             <Link
               aria-label="Back to Watch Sign"
-              className="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors"
+              className="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors cursor-pointer"
               href="/lesson/hello/watch"
             >
-              <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+              <Icon name="arrow_back" className="w-5 h-5" />
             </Link>
             <div className="flex flex-col">
               <h1 className="font-headline-md text-headline-md text-on-surface flex items-center gap-1.5 font-bold">
-                Practice: Hello <span className="text-[20px]">👋</span>
+                Practice: Hello
               </h1>
               <span className="font-caption text-caption text-on-surface-variant font-bold">
                 ASL Level 1 • Vocabulary
@@ -65,12 +99,12 @@ export default function SignPracticeStudioPage() {
           </div>
 
           <div className="flex items-center gap-space-sm">
-            <div className="flex items-center gap-space-xs bg-secondary-fixed text-on-secondary-fixed px-space-sm py-1 rounded-full shadow-[0_2px_0_0_#ffb5a0]">
-              <span className="material-symbols-outlined text-secondary text-[20px]">local_fire_department</span>
+            <div className="flex items-center gap-1.5 bg-secondary-fixed text-on-secondary-fixed px-space-sm py-1 rounded-full shadow-[0_2px_0_0_#ffb5a0]">
+              <Icon name="fire" className="w-4 h-4 text-secondary shrink-0" />
               <span className="font-label-md text-label-md font-bold">1 day streak</span>
             </div>
-            <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
-              <span className="material-symbols-outlined text-on-primary text-[20px]">person</span>
+            <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary">
+              <Icon name="person" className="w-5 h-5 text-on-primary" />
             </div>
           </div>
         </div>
@@ -105,15 +139,6 @@ export default function SignPracticeStudioPage() {
                       />
                     </div>
 
-                    {/* Target Hand Guide Silhouette Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-56 h-68 rounded-[44px] border-2 border-dashed border-[#38bdf8]/40 flex flex-col items-center justify-start pt-5 bg-[#38bdf8]/5 backdrop-blur-[1px]">
-                        <span className="font-caption text-caption text-[#7dd3fc] bg-[#0369a1]/80 px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm font-bold shadow-sm">
-                          Target Hand Zone
-                        </span>
-                      </div>
-                    </div>
-
                     {/* Top-Left: Live Status Badge */}
                     <div className="absolute top-space-md left-space-md z-20 flex items-center gap-space-xs bg-[#0b1324]/85 backdrop-blur-md px-space-sm py-1 rounded-full shadow-[0_2px_0_0_#1e293b] border border-white/10">
                       <span className={`w-2.5 h-2.5 rounded-full ${cameraReady ? 'bg-error animate-ping' : 'bg-gray-400'}`}></span>
@@ -123,47 +148,12 @@ export default function SignPracticeStudioPage() {
                       </span>
                     </div>
 
-                    {/* Top-Right: Hand Detection Status Badge */}
-                    <div className="absolute top-space-md right-space-md z-20 flex items-center gap-space-xs bg-[#0b1324]/85 backdrop-blur-md px-space-sm py-1 rounded-full text-primary-container border border-white/10">
-                      <span className="material-symbols-outlined text-[18px]">
-                        {sessionState !== 'no-hand' ? 'check_circle' : 'radio_button_unchecked'}
-                      </span>
-                      <span className="font-caption text-caption text-[#e2e8f0] font-bold">
-                        {sessionState !== 'no-hand' ? 'Hand Detected' : 'No Hand in View'}
-                      </span>
-                    </div>
-
-                    {/* Bottom-Left: Required Prototype Transparency Notice (PRD FR-8) */}
-                    <div className="absolute bottom-14 left-space-md z-20 flex items-center gap-1.5 bg-[#0b1324]/90 backdrop-blur-md px-3 py-1 rounded-lg border border-amber-400/40 text-amber-300 shadow-md">
-                      <span className="text-[14px]">⚠️</span>
-                      <span className="font-caption text-[11px] font-bold tracking-wide">
-                        Prototype: recognizes 1 sign (Hello)
-                      </span>
-                    </div>
-
                     {/* Bottom Controls Bar */}
-                    <div className="absolute bottom-space-md left-space-md right-space-md z-20 flex items-center justify-between pointer-events-auto">
-                      <div className="flex items-center gap-space-xs bg-[#0b1324]/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-white font-caption text-caption border border-white/10">
-                        <span className="material-symbols-outlined text-primary-container text-[18px]">accessibility_new</span>
+                    <div className="absolute bottom-space-md left-space-md z-20 flex items-center pointer-events-auto">
+                      <div className="flex items-center gap-1.5 bg-[#0b1324]/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-white font-caption text-caption border border-white/10">
+                        <Icon name="accessibility_new" className="w-4 h-4 text-primary-container shrink-0" />
                         <span className="font-bold">Mirrored Guidance</span>
                         <span className="text-gray-400 ml-1">| {fps > 0 ? `${fps} FPS` : 'Tracking'}</span>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        {/* OpenCV Preprocessing Toggle */}
-                        <button
-                          aria-label="Toggle OpenCV Preprocessing"
-                          className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors border border-white/15 ${
-                            openCvEnabled && openCvAvailable
-                              ? 'bg-primary-container text-on-primary-container'
-                              : 'bg-[#0b1324]/80 text-white hover:bg-[#1e293b]'
-                          }`}
-                          onClick={() => setOpenCvEnabled(!openCvEnabled)}
-                          title={openCvAvailable ? 'Toggle OpenCV Preprocessing' : 'OpenCV Fallback active'}
-                          type="button"
-                        >
-                          CV {openCvEnabled && openCvAvailable ? 'ON' : 'OFF'}
-                        </button>
                       </div>
                     </div>
 
@@ -171,13 +161,13 @@ export default function SignPracticeStudioPage() {
                     {cameraError && (
                       <div className="absolute inset-0 z-30 bg-[#0f172a]/95 backdrop-blur-md p-6 flex flex-col items-center justify-center text-center text-white">
                         <div className="w-14 h-14 rounded-full bg-error/20 text-error flex items-center justify-center mb-3">
-                          <span className="material-symbols-outlined text-[32px]">videocam_off</span>
+                          <Icon name="videocam_off" className="w-8 h-8 text-error" />
                         </div>
                         <h2 className="font-headline-md text-headline-md font-bold mb-1">{cameraError.title}</h2>
                         <p className="text-sm text-gray-300 max-w-sm mb-2">{cameraError.message}</p>
                         <p className="text-xs text-primary-container max-w-sm mb-4 font-semibold">{cameraError.actionHint}</p>
                         <button
-                          className="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-bold shadow-md hover:brightness-105 active:scale-95 transition-all"
+                          className="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-bold shadow-md hover:brightness-105 active:scale-95 transition-all cursor-pointer"
                           onClick={retryCamera}
                           type="button"
                         >
@@ -190,12 +180,12 @@ export default function SignPracticeStudioPage() {
                     {modelError && (
                       <div className="absolute inset-0 z-30 bg-[#0f172a]/95 backdrop-blur-md p-6 flex flex-col items-center justify-center text-center text-white">
                         <div className="w-14 h-14 rounded-full bg-error/20 text-error flex items-center justify-center mb-3">
-                          <span className="material-symbols-outlined text-[32px]">warning</span>
+                          <Icon name="warning" className="w-8 h-8 text-error" />
                         </div>
                         <h2 className="font-headline-md text-headline-md font-bold mb-2">Model Loading Issue</h2>
                         <p className="text-sm text-gray-300 max-w-sm mb-4">{modelError}</p>
                         <button
-                          className="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-bold shadow-md hover:brightness-105 active:scale-95 transition-all"
+                          className="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-bold shadow-md hover:brightness-105 active:scale-95 transition-all cursor-pointer"
                           onClick={retryCamera}
                           type="button"
                         >
@@ -214,7 +204,7 @@ export default function SignPracticeStudioPage() {
                   <div className="bg-surface-container-lowest p-space-md rounded-2xl shadow-[0_4px_0_0_#d4ecf7] flex flex-col gap-space-sm border border-surface-container-high/60">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-space-xs text-on-surface">
-                        <span className="material-symbols-outlined text-tertiary text-[20px]">smart_display</span>
+                        <Icon name="smart_display" className="w-5 h-5 text-tertiary shrink-0" />
                         <span className="font-label-lg text-label-lg font-bold">Instructor Model</span>
                       </div>
                       <span className="font-caption text-caption font-bold px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container">
@@ -245,7 +235,7 @@ export default function SignPracticeStudioPage() {
                   <div className="bg-tertiary-fixed/30 p-space-md rounded-2xl shadow-[0_4px_0_0_#88ceff] flex items-center justify-between gap-space-sm border border-tertiary-fixed">
                     <div className="flex items-center gap-space-sm">
                       <div className="w-10 h-10 rounded-xl bg-tertiary text-white flex items-center justify-center shrink-0 shadow-sm">
-                        <span className="material-symbols-outlined text-[24px]">sign_language</span>
+                        <Icon name="sign_language" className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <span className="font-caption text-caption text-on-tertiary-fixed-variant uppercase font-extrabold tracking-wider block">
@@ -253,20 +243,20 @@ export default function SignPracticeStudioPage() {
                         </span>
                         <p className="font-headline-md text-headline-md text-on-tertiary-fixed font-bold">
                           {isRecognized
-                            ? '🎉 "Hello" recognized!'
+                            ? '"Hello" recognized!'
                             : sessionState === 'try-again'
-                            ? '⏳ Time reached — click Reset to retry'
-                            : hint || '👋 Hand in position — wave outward'}
+                            ? 'Time reached — click Reset to retry'
+                            : hint || 'Hand in position — wave outward'}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Visual Checkpoints Checklist (Existing UI elements) */}
+                  {/* Visual Checkpoints Checklist */}
                   <div className="bg-surface-container-lowest p-space-md rounded-2xl shadow-[0_4px_0_0_#d4ecf7] flex flex-col gap-space-sm border border-surface-container-high/60">
                     <div className="flex items-center justify-between pb-1">
                       <h2 className="font-label-lg text-label-lg text-on-surface flex items-center gap-space-xs font-bold">
-                        <span className="material-symbols-outlined text-primary text-[20px]">task_alt</span>
+                        <Icon name="task_alt" className="w-5 h-5 text-primary shrink-0" />
                         Visual Checkpoints
                       </h2>
                       <span className="font-label-md text-label-md bg-surface-container px-space-sm py-0.5 rounded-full text-on-surface font-bold">
@@ -285,15 +275,16 @@ export default function SignPracticeStudioPage() {
                       >
                         <div className="flex items-center gap-space-sm">
                           <div
-                            className={`w-7 h-7 rounded-full flex items-center justify-center font-bold ${
+                            className={`w-7 h-7 rounded-full flex items-center justify-center font-bold shrink-0 ${
                               checks.handOpen
                                 ? 'bg-primary-container text-on-primary-container'
                                 : 'bg-surface-container-highest text-on-surface-variant'
                             }`}
                           >
-                            <span className="material-symbols-outlined text-[18px]">
-                              {checks.handOpen ? 'check' : 'radio_button_unchecked'}
-                            </span>
+                            <Icon
+                              name={checks.handOpen ? 'check' : 'radio_button_unchecked'}
+                              className="w-4 h-4"
+                            />
                           </div>
                           <div>
                             <span className="font-label-md text-label-md text-on-surface font-bold block">
@@ -325,15 +316,16 @@ export default function SignPracticeStudioPage() {
                       >
                         <div className="flex items-center gap-space-sm">
                           <div
-                            className={`w-7 h-7 rounded-full flex items-center justify-center font-bold ${
+                            className={`w-7 h-7 rounded-full flex items-center justify-center font-bold shrink-0 ${
                               checks.handRaised
                                 ? 'bg-primary-container text-on-primary-container'
                                 : 'bg-surface-container-highest text-on-surface-variant'
                             }`}
                           >
-                            <span className="material-symbols-outlined text-[18px]">
-                              {checks.handRaised ? 'check' : 'radio_button_unchecked'}
-                            </span>
+                            <Icon
+                              name={checks.handRaised ? 'check' : 'radio_button_unchecked'}
+                              className="w-4 h-4"
+                            />
                           </div>
                           <div>
                             <span className="font-label-md text-label-md text-on-surface font-bold block">
@@ -365,15 +357,16 @@ export default function SignPracticeStudioPage() {
                       >
                         <div className="flex items-center gap-space-sm">
                           <div
-                            className={`w-7 h-7 rounded-full flex items-center justify-center font-bold ${
+                            className={`w-7 h-7 rounded-full flex items-center justify-center font-bold shrink-0 ${
                               checks.movement
                                 ? 'bg-primary-container text-on-primary-container'
                                 : 'bg-surface-container-highest text-on-surface-variant'
                             }`}
                           >
-                            <span className="material-symbols-outlined text-[18px]">
-                              {checks.movement ? 'check' : 'radio_button_unchecked'}
-                            </span>
+                            <Icon
+                              name={checks.movement ? 'check' : 'radio_button_unchecked'}
+                              className="w-4 h-4"
+                            />
                           </div>
                           <div>
                             <span className="font-label-md text-label-md text-on-surface font-bold block">
@@ -400,31 +393,29 @@ export default function SignPracticeStudioPage() {
                   {/* Physical Action Buttons */}
                   <div className="flex items-center gap-space-sm pt-space-xs">
                     <button
-                      className="h-12 px-space-md rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-lg text-label-lg shadow-[0_4px_0_0_#d0d0d0] active:translate-y-[3px] active:shadow-[0_1px_0_0_#d0d0d0] transition-all flex items-center justify-center gap-space-xs font-bold border border-surface-container-high cursor-pointer"
+                      className="h-12 px-space-md rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-lg text-label-lg shadow-[0_4px_0_0_#d0d0d0] active:translate-y-[3px] active:shadow-[0_1px_0_0_#d0d0d0] transition-all flex items-center justify-center gap-1.5 font-bold border border-surface-container-high cursor-pointer"
                       onClick={resetSession}
                       type="button"
                     >
-                      <span className="material-symbols-outlined text-[20px]">replay</span>
+                      <Icon name="replay" className="w-5 h-5 shrink-0" />
                       <span>Reset</span>
                     </button>
 
                     <button
-                      className="flex-1 h-12 px-space-lg rounded-xl bg-primary-container text-[#111111] hover:bg-primary-fixed font-headline-md text-headline-md shadow-[0_4px_0_0_#72b043] active:translate-y-[3px] active:shadow-[0_1px_0_0_#72b043] transition-all flex items-center justify-center gap-space-xs font-extrabold cursor-pointer"
+                      className="flex-1 h-12 px-space-lg rounded-xl bg-primary-container text-[#111111] hover:bg-primary-fixed font-headline-md text-headline-md shadow-[0_4px_0_0_#72b043] active:translate-y-[3px] active:shadow-[0_1px_0_0_#72b043] transition-all flex items-center justify-center gap-1.5 font-extrabold cursor-pointer"
                       onClick={startVerification}
                       type="button"
                     >
                       <span>Check my sign</span>
-                      <span className="material-symbols-outlined text-[24px]">bolt</span>
+                      <Icon name="bolt" className="w-5 h-5 shrink-0" />
                     </button>
                   </div>
 
-                  {/* Success Banner: Revealed when sign is Recognized! */}
+                  {/* Success Banner */}
                   {isRecognized && (
                     <div className="bg-primary-container p-space-md rounded-2xl shadow-[0_4px_0_0_#72b043] flex items-center justify-between border-2 border-on-primary-container/20 animate-in fade-in slide-in-from-bottom-2 duration-300">
                       <div className="flex items-center gap-space-sm text-[#111111]">
-                        <span className="material-symbols-outlined text-[32px] text-on-primary-container">
-                          verified
-                        </span>
+                        <Icon name="verified" className="w-8 h-8 text-on-primary-container shrink-0" />
                         <div>
                           <span className="font-label-lg text-label-lg font-extrabold block">
                             Sign Recognized!
@@ -435,10 +426,11 @@ export default function SignPracticeStudioPage() {
                         </div>
                       </div>
                       <Link
-                        className="px-space-md py-2.5 bg-on-primary-container text-white font-label-md text-label-md rounded-xl shadow-md hover:brightness-110 font-bold flex items-center gap-1 active:scale-95 transition-all"
+                        className="px-space-md py-2.5 bg-on-primary-container text-white font-label-md text-label-md rounded-xl shadow-md hover:brightness-110 font-bold flex items-center gap-1.5 active:scale-95 transition-all cursor-pointer"
                         href="/lesson/hello/complete"
                       >
-                        <span>Continue &rarr;</span>
+                        <span>Continue</span>
+                        <Icon name="arrow_forward" className="w-4 h-4 shrink-0" />
                       </Link>
                     </div>
                   )}

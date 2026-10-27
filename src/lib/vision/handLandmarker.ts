@@ -1,10 +1,18 @@
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 
 let instance: HandLandmarker | null = null;
+let currentDelegate: 'GPU' | 'CPU' = 'GPU';
 let loadingPromise: Promise<HandLandmarker> | null = null;
 
-export async function getHandLandmarker(): Promise<HandLandmarker> {
-  if (instance) return instance;
+export function getActiveDelegate(): 'GPU' | 'CPU' {
+  return currentDelegate;
+}
+
+export async function getHandLandmarker(preferredDelegate: 'GPU' | 'CPU' = 'GPU'): Promise<HandLandmarker> {
+  if (instance && currentDelegate === preferredDelegate) return instance;
+  if (instance && currentDelegate !== preferredDelegate) {
+    closeHandLandmarker();
+  }
 
   if (!loadingPromise) {
     loadingPromise = (async () => {
@@ -19,17 +27,37 @@ export async function getHandLandmarker(): Promise<HandLandmarker> {
           },
           runningMode: 'VIDEO',
           numHands: 1,
+          minHandDetectionConfidence: 0.35,
+          minHandPresenceConfidence: 0.35,
+          minTrackingConfidence: 0.35,
         });
 
-      try {
-        instance = await create('GPU');
-      } catch (gpuError) {
-        console.warn('MediaPipe GPU delegate initialization failed, falling back to CPU:', gpuError);
-        instance = await create('CPU');
+      let landmarker: HandLandmarker;
+      if (preferredDelegate === 'CPU') {
+        landmarker = await create('CPU');
+        currentDelegate = 'CPU';
+      } else {
+        try {
+          landmarker = await create('GPU');
+          currentDelegate = 'GPU';
+        } catch (gpuError) {
+          console.warn('MediaPipe GPU delegate initialization failed, falling back to CPU:', gpuError);
+          try {
+            landmarker = await create('CPU');
+            currentDelegate = 'CPU';
+          } catch (cpuError) {
+            loadingPromise = null;
+            throw cpuError;
+          }
+        }
       }
 
+      instance = landmarker;
       return instance;
-    })();
+    })().catch((err) => {
+      loadingPromise = null;
+      throw err;
+    });
   }
 
   return loadingPromise;
