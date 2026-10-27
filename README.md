@@ -63,6 +63,8 @@ All dependencies are pinned without version ranges (`^` or `~`):
 | `typescript` | `5.7.3` | Strict type checking |
 | `opencv.js` | `4.8.0` | In-browser frame preprocessing (optional) |
 
+> For an in-depth technical breakdown of the computer vision pipeline, OpenCV WebAssembly integration, recognition mathematics, and SSR architecture, see [TECHNICAL_APPROACH.md](TECHNICAL_APPROACH.md).
+
 ---
 
 ## 4. Privacy & Computer Vision Architecture
